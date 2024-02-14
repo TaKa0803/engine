@@ -1,0 +1,43 @@
+{
+  "modelPathFile": {
+    "wall": [ "resources/AppResource", "Stage" ],
+    "plane": [ "resources/AppResource", "plane" ],
+    "player": [ "resources/AppResource", "player" ],
+    "talker": [ "resources/AppResource", "tolker" ],
+    "stage": [ "resources/AppResource", "Stage" ],
+
+    "sphere": [ "resources/SystemResources", "sphere" ],
+
+    "Boss": [ "resources/AppResource", "Boss" ]
+  },
+  "InstancingmodelPathFile": {
+    "weapon": [ "resources/AppResource", "Weapon", 64 ],
+    "wall": [ "resources/AppResource", "Stage", 5 ],
+    "sphere": [ "resources/SystemResources", "sphere", 10000 ],
+    "z+Plane": [ "resources/SystemResources", "normalZ+Plane", 1000 ],
+    "box": [ "resources/SystemResources", "ALPlayer", 1000 ],
+    "plane": [ "resources/AppResource", "plane", 1 ],
+    "player": [ "resources/AppResource", "player", 100 ],
+    "EBox": [ "resources/AppResource/Particle", "EBox", 5000 ],
+    "SkyDome": [ "resources/AppResource", "Skydome", 5 ],
+    "talker": [ "resources/AppResource", "tolker", 5 ],
+    "parrot": [ "resources/AppResource", "parrot", 1000 ],
+    "PAmmo": [ "resources/AppResource", "LongRangeSound", 50 ],
+    "SRS": [ "resources/AppResource", "ShortRangeSound", 50 ],
+    "step": [ "resources/AppResource", "step", 5 ],
+    "Explo": [ "resources/AppResource", "Explo", 1000 ],
+    "dBox": [ "resources/AppResource", "dangerZone", 100 ],
+    "dSphere": [ "resources/AppResource", "dangerSphere", 100 ],
+    "pH": [ "resources/AppResource/P", "pHead", 1 ],
+    "pLA": [ "resources/AppResource/P", "pLA", 1 ],
+    "pRA": [ "resources/AppResource/P", "pRA", 1 ],
+    "pLF": [ "resources/AppResource/P", "pLF", 1 ],
+    "pRF": [ "resources/AppResource/P", "pRF", 1 ],
+    "pHI": [ "resources/AppResource/P", "pHI", 1 ],
+    "aH": [ "resources/AppResource/audience", "aH", 200 ],
+    "aB": [ "resources/AppResource/audience", "aB", 200 ],
+    "aLA": [ "resources/AppResource/audience", "aLA", 200 ],
+    "aRA": [ "resources/AppResource/audience", "aRA", 200 ],
+    "bomb": [ "resources/AppResource", "soundBomb", 5 ]
+  }
+}
