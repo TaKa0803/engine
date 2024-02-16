@@ -222,7 +222,7 @@ void ALEnemy::Update() {
 void ALEnemy::Collision(SphereCollider* collider) {
 
 	Vector3 backVec;
-	if (collider_->IsCollision(*collider, backVec)) {
+	if (collider_->IsCollision(collider, backVec)) {
 
 		state_ = Hit;
 
@@ -251,7 +251,7 @@ void ALEnemy::OshiDashi(SphereCollider* collider)
 {
 
 	Vector3 backVec;
-	if (collider_->IsCollision(*collider, backVec)) {
+	if (collider_->IsCollision(collider, backVec)) {
 		backVec.y = 0;
 		world_.translate_ += backVec;
 	}

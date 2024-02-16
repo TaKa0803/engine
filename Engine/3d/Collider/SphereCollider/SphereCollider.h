@@ -26,7 +26,7 @@ public:
 	/// <param name="sphere">元となるコライダー</param>
 	/// <param name="backVec">押し戻しベクトル</param>
 	/// <returns>押し戻しベクトルに値を渡し成否チェック</returns>
-	bool IsCollision(const SphereCollider& sphere, Vector3& backVec);
+	bool IsCollision(const SphereCollider* sphere, Vector3& backVec);
 
 	/// <summary>
 	/// 当たり判定チェック

@@ -59,14 +59,14 @@ void SphereCollider::Draw() {
 
 }
 
-bool SphereCollider::IsCollision(const SphereCollider& sphere, Vector3& backVec) {
+bool SphereCollider::IsCollision(const SphereCollider* sphere, Vector3& backVec) {
 
 	//各点取得
-	Vector3 pos = sphere.world_.GetMatWorldTranslate();
+	Vector3 pos = sphere->world_.GetMatWorldTranslate();
 	Vector3 myP = world_.GetMatWorldTranslate();
 
 	//各半径取得
-	float wide = GetAllScaleX(sphere.GetWorld());
+	float wide = GetAllScaleX(sphere->GetWorld());
 	float myW = GetAllScaleX(world_);
 
 	//距離計算

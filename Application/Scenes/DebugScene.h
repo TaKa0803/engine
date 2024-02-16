@@ -35,12 +35,17 @@ private:
 	WorldTransform cWorld_;
 	std::unique_ptr<Camera> camera_;
 
-	/*std::unique_ptr<InstancingGameObject>pHead_;
-	std::unique_ptr<InstancingGameObject>pLA_;
-	std::unique_ptr<InstancingGameObject>pRA_;
-	std::unique_ptr<InstancingGameObject>pLF_;
-	std::unique_ptr<InstancingGameObject>pRF_;
-	std::unique_ptr<InstancingGameObject>pHI_;*/
+	
+	WorldTransform sw1;
+	WorldTransform sw2;
+	WorldTransform obbw;
+
+
+	std::unique_ptr<SphereCollider> sp1;
+	std::unique_ptr<SphereCollider> sp2;
+
+	std::unique_ptr<OBBCollider> obb;
+
 
 
 	//エフェクト
