@@ -9,27 +9,10 @@ DebugScene::DebugScene()
 
 	camera_ = std::make_unique<Camera>();
 
-	/*pHead_ = std::make_unique<InstancingGameObject>();
-	pLA_ = std::make_unique<InstancingGameObject>();
-	pRA_ = std::make_unique<InstancingGameObject>();
-	pLF_ = std::make_unique<InstancingGameObject>();
-	pRF_ = std::make_unique<InstancingGameObject>();
-	pHI_ = std::make_unique<InstancingGameObject>();
+	sp1 = std::make_unique<SphereCollider>();
+	sp2 = std::make_unique<SphereCollider>();
 
-	pHead_->SetParent(&cWorld_);
-	pLA_->SetParent(&pHead_->GetWorld());
-	pRA_->SetParent(&pHead_->GetWorld());
-	pLF_->SetParent(&pHead_->GetWorld());
-	pRF_->SetParent(&pHead_->GetWorld());
-	pHI_->SetParent(&pHead_->GetWorld());
-
-	pLA_->SetTranslate({ -0.8f,0,0 });
-	pRA_->SetTranslate({ 0.8f,0,0 });
-	pLF_->SetTranslate({ -0.6f,-1.0f,0 });
-	pRF_->SetTranslate({ 0.6f,-0.98f,0 });
-	pHI_->SetTranslate({0,0.93f,0});*/
-
-
+	obb = std::make_unique<OBBCollider>();
 
 
 	//エフェクト
@@ -46,14 +29,19 @@ void DebugScene::Initialize()
 	camera_->Initialize();
 	camera_->SetTarget(&cWorld_);
 
-	/*pHead_->Initialize("pH");
-	pLA_->Initialize("pLA");
-	pRA_->Initialize("pRA");
-	pLF_->Initialize("pLF");
-	pRF_->Initialize("pRF");
-	pHI_->Initialize("pHI");*/
+
+	sp1->Initialize("sp",sw1);
+	sp2->Initialize("sp",sw2);
+	obb->Initialize("sp",obbw);
 
 	
+	sw1.Initialize();
+	sw2.Initialize();
+	obbw.Initialize();
+
+	sw1.translate_ = { 5,0,0 };
+	sw2.translate_ = { -5,0,0 };
+
 
 	EffectExp_->Initialize();
 
@@ -69,8 +57,13 @@ void DebugScene::Update()
 	Vector3 move = input_->GetAllArrowKey();
 
 
+	sw1.UpdateMatrix();
+	sw2.UpdateMatrix();
+	obbw.UpdateMatrix();
 
-	Vector3 backV;
+	sp1->Update();
+	sp2->Update();
+	obb->Update();
 
 
 	if (input_->TriggerKey(DIK_SPACE)) {
@@ -106,26 +99,32 @@ void DebugScene::Update()
 
 	EffectExp_->Update();
 
-	/*pHead_->Update();
-	pLA_->Update();
-	pRA_->Update();
-	pLF_->Update();
-	pRF_->Update();
-	pHI_->Update();*/
 
-	
+	Vector3 backV;
+	if (obb->IsCollision(sp1.get(), backV)) {
+		sw1.translate_ -= backV;
+		sw1.UpdateMatrix();
+		sp1->Update();
+	}
+	if (obb->IsCollision(sp2.get(), backV)) {
+		sw2.translate_ -= backV;
+		sw2.UpdateMatrix();
+		sp2->Update();
+	}
 
+	if (sp1->IsCollision(sp2.get(), backV)) {
+		sw1.translate_ += backV;
+		sw1.UpdateMatrix();
+		sp1->Update();
+	}
 }
 
 void DebugScene::Draw()
 {
-	/*pHead_->Draw();
-	pLA_->Draw();
-	pRA_->Draw();
-	pLF_->Draw();
-	pRF_->Draw();
-	pHI_->Draw();*/
 	
+	sp1->Draw();
+	sp2->Draw();
+	obb->Draw();
 
 
 	EffectExp_->Draw();
@@ -137,17 +136,9 @@ void DebugScene::Debug()
 {
 	camera_->DrawDebugWindow("camera");
 
-	/*pHead_->Debug("pH");
-	pLA_->Debug("pLA");
-	pRA_->Debug("pRA");
-	pLF_->Debug("pLF");
-	pRF_->Debug("pRF");
-	pHI_->Debug("pHI");
+	sw1.DrawDebug("s1");
+	sw2.DrawDebug("s2");
+	obbw.DrawDebug("obb");
 
-	h_->Debug("h");
-	B_->Debug("B");
-	LA_->Debug("LA");
-	RA_->Debug("RA");
-	*/
 }
 

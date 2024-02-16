@@ -25,9 +25,9 @@ void WorldTransform::DrawDebug(const char*name) {
 #ifdef _DEBUG
 
 	if (ImGui::BeginMenu(name)) {
-		ImGui::DragFloat3("pos", &translate_.x, 0.01f);
-		ImGui::DragFloat3("rotate", &rotate_.x, 0.01f);
-		ImGui::DragFloat3("scale", &scale_.x, 0.01f);
+		ImGui::DragFloat3("座標", &translate_.x, 0.01f);
+		ImGui::DragFloat3("回転", &rotate_.x, 0.01f);
+		ImGui::DragFloat3("拡縮", &scale_.x, 0.01f);
 		ImGui::EndMenu();
 	}
 

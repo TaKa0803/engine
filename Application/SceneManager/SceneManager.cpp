@@ -6,11 +6,9 @@
 
 
 #pragma region シーンのh
-#include"./Scenes/TitleScene.h"
-#include"./Scenes/GameScene.h"
-#include"Scenes/ClearScene/ClearScene.h"
-#include"Scenes/FailScene/FailScene.h"
 #include"Scenes/DebugScene.h"
+#include"AL/ALScene/ALTitleScene.h"
+#include"AL/ALScene/ALGameScene.h"
 #pragma endregion
 
 
@@ -19,22 +17,18 @@ void SceneManager::Initialize()
 {
 	currentSceneNo_ = -1;
 	//シーンの数取得
-	sceneArr_.resize((size_t)SCENE::SceneCount);
+	sceneArr_.resize((size_t)SCENE::_SceneCount);
 
 	//各シーンの情報設定
-	sceneArr_[TITLE] = std::make_unique<TitleScene>();
-	sceneArr_[GAME] = std::make_unique<GameScene>();
-	sceneArr_[CLEAR] = std::make_unique<ClearScene>();
-	sceneArr_[FAIL] = std::make_unique<FailScene>();
 	sceneArr_[DEBUG] = std::make_unique<DebugScene>();
-	
+	sceneArr_[ALTITLE] = std::make_unique<ALTitleScene>();
+	sceneArr_[ALGAME] = std::make_unique<ALGameScene>();
+
+
 	sceneName_.clear();
-	sceneName_.push_back("TITLE");
-	sceneName_.push_back("GAME");
-	sceneName_.push_back("CLEAR");
-	sceneName_.push_back("FAIL");
 	sceneName_.push_back("DEBUG");
-	
+	sceneName_.push_back("ALTITLE");
+	sceneName_.push_back("ALGAME");
 
 
 	/*
@@ -45,7 +39,7 @@ void SceneManager::Initialize()
 
 
 	//初期シーン設定
-	IScene::SetSceneNo(TITLE);
+	IScene::SetSceneNo(ALTITLE);
 
 }
 
@@ -100,7 +94,7 @@ void SceneManager::DebugWindow()
 	ImGui::Begin("SceneManager");
 	ImGui::Text("SceneNo.%d", currentSceneNo_);
 	ImGui::Text("%s", sceneName_[currentSceneNo_].c_str());
-	ImGui::SliderInt("sceneNo", &num,TITLE, DEBUG);
+	ImGui::SliderInt("sceneNo", &num,DEBUG,_SceneCount-1 );
 	ImGui::End();
 
 	IScene::SetSceneNo(num);

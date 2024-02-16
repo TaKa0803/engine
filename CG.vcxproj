@@ -109,28 +109,21 @@ copy "$(WindowsSdkDir)bin\$(TargetPlatformVersion)\x64\dxil.dll" "$(TargetDir)dx
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Application\AL\ALScene\ALGameScene.cpp" />
+    <ClCompile Include="Application\AL\ALScene\ALTitleScene.cpp" />
+    <ClCompile Include="Application\AL\BrokenBody\BrokenBody.cpp" />
+    <ClCompile Include="Application\AL\EnemyPopManager\EnemyPopManager.cpp" />
+    <ClCompile Include="Application\AL\Enemy\ALEnemy.cpp" />
+    <ClCompile Include="Application\AL\Player\ALPlayer.cpp" />
     <ClCompile Include="Application\CG\CGScene.cpp" />
     <ClCompile Include="Application\Effect\dZoneE\DZone.cpp" />
     <ClCompile Include="Application\Effect\EffectExplosion.cpp" />
     <ClCompile Include="Application\Effect\EffectSphereExplo\ESphereExplo.cpp" />
-    <ClCompile Include="Application\Object\AreaAttack.cpp" />
-    <ClCompile Include="Application\Object\Audience\audience.cpp" />
-    <ClCompile Include="Application\Object\BossEnemy.cpp" />
-    <ClCompile Include="Application\Object\EchoBlast.cpp" />
-    <ClCompile Include="Application\Object\Plane.cpp" />
-    <ClCompile Include="Application\Object\Player.cpp" />
-    <ClCompile Include="Application\Object\Skydome\Skydome.cpp" />
-    <ClCompile Include="Application\Object\SomeEnemy.cpp" />
-    <ClCompile Include="Application\Object\Stage.cpp" />
-    <ClCompile Include="Application\Object\StageWall.cpp" />
-    <ClCompile Include="Application\Object\Step\Step.cpp" />
+    <ClCompile Include="Application\AL\Plane\Plane.cpp" />
     <ClCompile Include="Application\SceneManager\SceneManager.cpp" />
     <ClCompile Include="Application\Scenes\DebugScene.cpp" />
-    <ClCompile Include="Application\Scenes\GameScene.cpp" />
     <ClCompile Include="Application\Scenes\IScene.cpp" />
     <ClCompile Include="Application\Scenes\MT4Scene.cpp" />
-    <ClCompile Include="Application\Scenes\TitleScene.cpp" />
-    <ClCompile Include="Application\Scenes\ClearScene\ClearScene.cpp" />
     <ClCompile Include="Engine\3d\Collider\ColliderOBB\OBBCollider.cpp" />
     <ClCompile Include="Engine\3d\Collider\ColliderPlane\PlaneCollider.cpp" />
     <ClCompile Include="Engine\3d\Collider\IsCollisions.cpp" />
@@ -178,7 +171,6 @@ copy "$(WindowsSdkDir)bin\$(TargetPlatformVersion)\x64\dxil.dll" "$(TargetDir)dx
     <ClCompile Include="externals\Imgui\imgui_impl_win32.cpp" />
     <ClCompile Include="externals\Imgui\imgui_tables.cpp" />
     <ClCompile Include="externals\Imgui\imgui_widgets.cpp" />
-    <ClCompile Include="Application\Scenes\FailScene\FailScene.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -208,29 +200,22 @@ copy "$(WindowsSdkDir)bin\$(TargetPlatformVersion)\x64\dxil.dll" "$(TargetDir)dx
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Application\AL\ALScene\ALGameScene.h" />
+    <ClInclude Include="Application\AL\ALScene\ALTitleScene.h" />
+    <ClInclude Include="Application\AL\BrokenBody\BrokenBody.h" />
+    <ClInclude Include="Application\AL\EnemyPopManager\EnemyPopManager.h" />
+    <ClInclude Include="Application\AL\Enemy\ALEnemy.h" />
+    <ClInclude Include="Application\AL\items.h" />
+    <ClInclude Include="Application\AL\Player\ALPlayer.h" />
     <ClInclude Include="Application\CG\CGScene.h" />
     <ClInclude Include="Application\Effect\dZoneE\DZone.h" />
     <ClInclude Include="Application\Effect\EffectExplosion.h" />
     <ClInclude Include="Application\Effect\EffectSphereExplo\ESphereExplo.h" />
-    <ClInclude Include="Application\Object\AreaAttack.h" />
-    <ClInclude Include="Application\Object\Audience\audience.h" />
-    <ClInclude Include="Application\Object\BossEnemy.h" />
-    <ClInclude Include="Application\Object\EchoBlast.h" />
-    <ClInclude Include="Application\Object\Objects.h" />
-    <ClInclude Include="Application\Object\Plane.h" />
-    <ClInclude Include="Application\Object\Player.h" />
-    <ClInclude Include="Application\Object\Skydome\Skydome.h" />
-    <ClInclude Include="Application\Object\SomeEnemy.h" />
-    <ClInclude Include="Application\Object\Stage.h" />
-    <ClInclude Include="Application\Object\StageWall.h" />
-    <ClInclude Include="Application\Object\Step\Step.h" />
+    <ClInclude Include="Application\AL\Plane\Plane.h" />
     <ClInclude Include="Application\SceneManager\SceneManager.h" />
     <ClInclude Include="Application\Scenes\DebugScene.h" />
-    <ClInclude Include="Application\Scenes\GameScene.h" />
     <ClInclude Include="Application\Scenes\MT4Scene.h" />
     <ClInclude Include="Application\Scenes\Scenes.h" />
-    <ClInclude Include="Application\Scenes\TitleScene.h" />
-    <ClInclude Include="Application\Scenes\ClearScene\ClearScene.h" />
     <ClInclude Include="Engine\3d\Collider\ColliderOBB\OBBCollider.h" />
     <ClInclude Include="Engine\3d\Collider\ColliderPlane\PlaneCollider.h" />
     <ClInclude Include="Engine\3d\Collider\IsCollisions.h" />
@@ -279,7 +264,6 @@ copy "$(WindowsSdkDir)bin\$(TargetPlatformVersion)\x64\dxil.dll" "$(TargetDir)dx
     <ClInclude Include="externals\Imgui\imstb_rectpack.h" />
     <ClInclude Include="externals\Imgui\imstb_textedit.h" />
     <ClInclude Include="externals\Imgui\imstb_truetype.h" />
-    <ClInclude Include="Application\Scenes\FailScene\FailScene.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="externals\Imgui\LICENSE.txt" />
@@ -293,11 +277,11 @@ copy "$(WindowsSdkDir)bin\$(TargetPlatformVersion)\x64\dxil.dll" "$(TargetDir)dx
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="resources\enemyPopData.json" />
+    <None Include="resources\jsonfile\enemyPopData.json" />
     <None Include="resources\GlobalVariables\StageWall.json" />
     <None Include="resources\jsonfile\resourcePath.json" />
-    <None Include="resources\modelPathFile.json" />
-    <None Include="resources\PlayerATKData.json" />
+    <None Include="resources\jsonfile\modelPathFile.json" />
+    <None Include="resources\jsonfile\PlayerATKData.json" />
     <None Include="resources\shaders\InstancingObject.hlsli">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>

@@ -1,0 +1,35 @@
+{
+  "modelPathFile": {
+    "wall": [ "resources/AppResource", "Stage" ],
+    "ALPlayer": [ "resources/AppResource", "ALPlayer" ],
+    "plane": [ "resources/AppResource", "plane" ],
+    "player": [ "resources/AppResource", "player" ],
+    "Head": [ "resources/AppResource/Object", "Head" ],
+    "LArm": [ "resources/AppResource/Object", "LArm" ],
+    "RArm": [ "resources/AppResource/Object", "RArm" ],
+    "LFoot": [ "resources/AppResource/Object", "LFoot" ],
+    "RFoot": [ "resources/AppResource/Object", "RFoot" ],
+    "talker": [ "resources/AppResource", "tolker" ]
+  },
+  "InstancingmodelPathFile": {
+    "weapon": [ "resources/AppResource", "Weapon", 64 ],
+    "wall": [ "resources/AppResource", "Stage", 5 ],
+    "sphere": [ "resources/SystemResources", "sphere", 1000 ],
+    "z+Plane": [ "resources/SystemResources", "normalZ+Plane", 1000 ],
+    "box": [ "resources/SystemResources", "ALPlayer", 1000 ],
+    "ALPlayer": [ "resources/AppResource", "ALPlayer", 1 ],
+    "plane": [ "resources/AppResource", "plane", 1 ],
+    "player": [ "resources/AppResource", "player", 100 ],
+    "Head": [ "resources/AppResource/Object", "Head", 1000 ],
+    "LArm": [ "resources/AppResource/Object", "LArm", 1000 ],
+    "RArm": [ "resources/AppResource/Object", "RArm", 1000 ],
+    "LFoot": [ "resources/AppResource/Object", "LFoot", 1000 ],
+    "RFoot": [ "resources/AppResource/Object", "RFoot", 1000 ],
+    "Flag": [ "resources/AppResource/Object", "Flag", 10 ],
+    "EBox": [ "resources/AppResource/Particle", "EBox", 50000 ],
+    "SkyDome": [ "resources/AppResource", "Skydome", 5 ],
+    "talker": [ "resources/AppResource", "tolker", 5 ],
+    "parrot": [ "resources/AppResource", "parrot", 1000 ],
+    "PAmmo": [ "resources/AppResource", "LongRangeSound", 50 ]
+  }
+}

@@ -1,13 +1,14 @@
 {
 	"audios": {
-		"BGM": [ "BGM.wav" ],
-		"Bound": ["Bound.wav"],
-		"PlayerShot": [ "PlayerShot.wav" ],
-		"Hit": [ "EnemyHitBossOrEnemy.wav" ],
-		"CLEAR": [ "Clear.wav" ],
-		"FAIL": [ "Failed.wav" ],
-		"minExplo": [ "explode_big.wav" ],
-		"maxExplo": [ "explode_smale.wav" ],
-		"pDamage": [ "playerDamage.wav" ]
+		"audio1": [ "se_soa03.wav" ],
+		"BGM": [ "c46nt-ifwwl.wav" ],
+		"maou": [ "s2ylj-qqrf5.wav" ],
+		"title": [ "title.wav" ],
+		"game": [ "Trick_style.wav" ],
+		"clear": [ "clear.wav" ],
+		"com1": [ "1.wav" ],
+		"com2": [ "2.wav" ],
+		"com3": [ "3.wav" ],
+		"break": [ "break.wav" ]
 	}
 }
