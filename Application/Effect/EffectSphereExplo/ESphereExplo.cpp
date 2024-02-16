@@ -23,7 +23,7 @@ void EfSphereExplosion::AddEffectData(const ExploData& eData)
 {
 	datas_.emplace_back(eData);
 
-	AudioManager::PlaySoundData(sound_);
+	AudioManager::PlaySoundData(sound_,0.5f);
 }
 
 void EfSphereExplosion::Update()

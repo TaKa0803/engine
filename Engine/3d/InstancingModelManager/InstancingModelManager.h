@@ -106,7 +106,7 @@ public:
 private:
 
 	//jsonのパス
-	const std::string modelPathFile_ = "resources/modelPathFile.json";
+	const std::string modelPathFile_ = "resources/jsonfile/modelPathFile.json";
 
 	//グループ名
 	const std::string groupName_ = "InstancingmodelPathFile";

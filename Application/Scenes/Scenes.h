@@ -3,10 +3,8 @@
 
 //シーン
 enum SCENE {
-	TITLE,
-	GAME,
-	CLEAR,
-	FAIL,
 	DEBUG,
-	SceneCount	//使うな
+	ALTITLE,
+	ALGAME,
+	_SceneCount	//使うな
 };

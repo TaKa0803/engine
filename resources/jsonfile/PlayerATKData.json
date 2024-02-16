@@ -1,0 +1,14 @@
+{
+
+  "BButtonATK": {
+    "data": [ 5, 10, 10, 0,1.0 ],
+
+    "ATKDerivation": {
+      "data": [ 0, 10, 5, 1,1.5 ],
+
+      "ATKDerivation": {
+        "data": [ 0, 30, 0, 1,1.0 ]
+      }
+    }
+  }
+}
