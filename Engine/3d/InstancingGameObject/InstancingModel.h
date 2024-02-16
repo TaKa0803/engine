@@ -124,10 +124,10 @@ private:
 
 public:
 	
-	static InstancingPSO* pso_;
 
 private:
 
+	static InstancingPSO* pso_;
 	//blendMode1
 	BlendMode blendMode_ = BlendMode::kNormal;
 

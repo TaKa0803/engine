@@ -30,6 +30,14 @@ ObjectPSO::~ObjectPSO() {
 
 void ObjectPSO::Initialize(ID3D12Device* device) {
 
+
+	if (isInitialize_) {
+		return;
+	}
+	else {
+		isInitialize_ = true;
+	}
+
 #pragma region RootSignatureを生成する
 
 			//RootSignatureの作成

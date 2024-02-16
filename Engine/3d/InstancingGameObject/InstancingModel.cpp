@@ -19,6 +19,8 @@ InstancingPSO* InstancingModel::pso_ =new InstancingPSO();
 
 InstancingModel::~InstancingModel() {
 	
+	delete pso_;
+
 	vertexData_->Release();
 	wvpResource_->Release();
 	//materialResource_->Release();

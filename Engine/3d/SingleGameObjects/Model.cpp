@@ -17,9 +17,11 @@
 
 
 #pragma region モデル
+
+std::unique_ptr<ObjectPSO> Model::grarphics_ = std::make_unique<ObjectPSO>();
+
 Model::~Model() {
 
-	delete grarphics_;
 
 	vertexData_->Release();
 	wvpResource_->Release();
@@ -177,7 +179,7 @@ void Model::Initialize(
 
 	DXF_ = DirectXFunc::GetInstance();
 
-	grarphics_ = new ObjectPSO();
+
 	grarphics_->Initialize(DXF_->GetDevice());
 
 	name = name_;

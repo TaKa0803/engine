@@ -55,6 +55,9 @@ private:
 
 	//fillMode
 	FillMode fillMode_ = FillMode::kSolid;
+
+
+	bool isInitialize_ = false;
 };
 
 

@@ -11,6 +11,8 @@
 
 #include"WorldTransform/WorldTransform.h"
 
+#include<memory>
+
 class Sprite {
 public:
 
@@ -150,7 +152,7 @@ private:
 
 	DirectXFunc* DXF = nullptr;
 
-	ObjectPSO* grarphics_=nullptr;
+	static std::unique_ptr<ObjectPSO> grarphics_;
 
 
 	int texture_=-1;

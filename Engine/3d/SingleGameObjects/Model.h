@@ -117,7 +117,7 @@ private:
 
 	DirectXFunc* DXF_;
 
-	ObjectPSO* grarphics_;
+	static std::unique_ptr<ObjectPSO> grarphics_;
 
 
 	std::string name;
@@ -150,6 +150,7 @@ private:
 	Vector3 uvpos{};
 	Vector3 uvscale{ 1.0f,1.0f,1.0f };
 	Vector3 uvrotate{};
+
 };
 
 

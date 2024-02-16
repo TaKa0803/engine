@@ -8,11 +8,13 @@
 #include"Log/Log.h"
 
 
+std::unique_ptr<ObjectPSO> Sprite::grarphics_ = std::make_unique<ObjectPSO>();
+
 Sprite::Sprite() {
 }
 
 Sprite::~Sprite() {
-	delete grarphics_;
+	
 	vertexResource_->Release();
 	indexResource_->Release();
 	transformationMatrixResource_->Release();
@@ -144,98 +146,6 @@ Sprite* Sprite::Create(int texture, const Vector2 size, const Vector2 Rect, cons
 }
 
 
-/*
-Sprite* Sprite::Create(int texture, const Vector2 translate, const float rotate, const Vector2 scale, const Vector2 anchor) {
-
-	DirectXFunc* DXF = DirectXFunc::GetInstance();
-
-
-
-
-	WorldTransform newWorld;
-	newWorld.translate_ = { translate.x,translate.y,1 };
-	newWorld.rotate_.z = rotate;
-	newWorld.scale_ = { scale.x,scale.y,1 };
-
-#pragma region Sprite
-	ID3D12Resource* vertexResource;
-
-	D3D12_VERTEX_BUFFER_VIEW vertexBufferView{};
-
-	ID3D12Resource* indexResourceSprite;
-
-	D3D12_INDEX_BUFFER_VIEW indexBufferViewSprite{};
-
-
-#pragma region VertexResourceとVertexBufferViewを用意
-	//Sprite用の頂点リソースを作る
-	vertexResource = CreateBufferResource(DXF->GetDevice(), sizeof(VertexData) * 4);
-
-	//頂点バッファビューを作成する
-	//リソース用の先頭のアドレスから使う
-	vertexBufferView.BufferLocation = vertexResource->GetGPUVirtualAddress();
-	//使用するリソースのサイズは頂点6つ分のサイズ
-	vertexBufferView.SizeInBytes = sizeof(VertexData) * 4;
-	//頂点当たりのサイズ
-	vertexBufferView.StrideInBytes = sizeof(VertexData);
-#pragma endregion
-
-#pragma region 頂点データを設定する
-	VertexData* vertexDataSprite = nullptr;
-	vertexResource->Map(0, nullptr, reinterpret_cast<void**>(&vertexDataSprite));
-	//一枚目の三角形
-
-	Vector2 minv = { 1 * (-anchor.x),1 * (-anchor.y) };
-
-	Vector3 maxV = { 1 * (1 - anchor.x),1 * (1 - anchor.y) };
-
-	vertexDataSprite[0].position = { minv.x,maxV.y,0.0f,1.0f };
-	vertexDataSprite[0].texcoord = { 0.0f,1.0f };
-	vertexDataSprite[0].normal = { 0.0f,0.0f,-1.0f };
-
-	vertexDataSprite[1].position = { minv.x,minv.y,0.0f,1.0f };
-	vertexDataSprite[1].texcoord = { 0.0f,0.0f };
-	vertexDataSprite[1].normal = { 0.0f,0.0f,-1.0f };
-
-	vertexDataSprite[2].position = { maxV.x,maxV.y,0.0f,1.0f };
-	vertexDataSprite[2].texcoord = { 1.0f,1.0f };
-	vertexDataSprite[2].normal = { 0.0f,0.0f,-1.0f };
-
-	vertexDataSprite[3].position = { maxV.x,minv.y,0.0f,1.0f };
-	vertexDataSprite[3].texcoord = { 1.0f,0.0f };
-	vertexDataSprite[3].normal = { 0.0f,0.0f,-1.0f };
-
-	indexResourceSprite = CreateBufferResource(DXF->GetDevice(), sizeof(uint32_t) * 6);
-
-	//リソースの先頭アドレスから使う
-	indexBufferViewSprite.BufferLocation = indexResourceSprite->GetGPUVirtualAddress();
-	//使用するリソースのサイズはインデックス６つ分のサイズ
-	indexBufferViewSprite.SizeInBytes = sizeof(uint32_t) * 6;
-	//インデックス
-	indexBufferViewSprite.Format = DXGI_FORMAT_R32_UINT;
-
-	uint32_t* indexDataSprite = nullptr;
-	indexResourceSprite->Map(0, nullptr, reinterpret_cast<void**>(&indexDataSprite));
-	indexDataSprite[0] = 1;
-	indexDataSprite[1] = 3;
-	indexDataSprite[2] = 0;
-
-	indexDataSprite[3] = 3;
-	indexDataSprite[4] = 2;
-	indexDataSprite[5] = 0;
-
-
-#pragma endregion
-
-
-
-	Sprite* sprite = new Sprite();
-	sprite->Initialize(texture,newWorld, vertexResource, vertexBufferView, indexResourceSprite, indexBufferViewSprite);
-
-	return sprite;
-
-}
-*/
 
 
 void Sprite::Initialize(int texture,
@@ -252,7 +162,6 @@ void Sprite::Initialize(int texture,
 ) {
 	DXF = DirectXFunc::GetInstance();
 
-	grarphics_ = new ObjectPSO();
 	grarphics_->Initialize(DXF->GetDevice());
 
 
