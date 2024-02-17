@@ -7,6 +7,7 @@
 
 #pragma region シーンのh
 #include"Scenes/DebugScene.h"
+#include"CG/CGScene.h"
 #include"AL/ALScene/ALTitleScene.h"
 #include"AL/ALScene/ALGameScene.h"
 #pragma endregion
@@ -21,6 +22,7 @@ void SceneManager::Initialize()
 
 	//各シーンの情報設定
 	sceneArr_[DEBUG] = std::make_unique<DebugScene>();
+	sceneArr_[CG] = std::make_unique<CGScnene>();
 	sceneArr_[ALTITLE] = std::make_unique<ALTitleScene>();
 	sceneArr_[ALGAME] = std::make_unique<ALGameScene>();
 

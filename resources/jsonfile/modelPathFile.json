@@ -9,7 +9,8 @@
     "RArm": [ "resources/AppResource/Object", "RArm" ],
     "LFoot": [ "resources/AppResource/Object", "LFoot" ],
     "RFoot": [ "resources/AppResource/Object", "RFoot" ],
-    "talker": [ "resources/AppResource", "tolker" ]
+    "talker": [ "resources/AppResource", "tolker" ],
+    "sphere": [ "resources/SystemResources", "sphere"]
   },
   "InstancingmodelPathFile": {
     "weapon": [ "resources/AppResource", "Weapon", 64 ],
