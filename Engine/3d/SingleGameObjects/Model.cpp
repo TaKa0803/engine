@@ -251,6 +251,7 @@ void Model::Draw(const Matrix4x4& worldMatrix, const Camera& camera,int texture)
 
 	wvpData_->WVP = WVP;
 	wvpData_->World = worldMatrix;
+	wvpData_->WorldInverseTranspose = Inverse(Transpose(worldMatrix));
 
 	cameraData_->worldPosition = camera.GetMainCamera().GetMatWorldTranslate();
 
