@@ -22,16 +22,15 @@ void SceneManager::Initialize()
 
 	//各シーンの情報設定
 	sceneArr_[DEBUG] = std::make_unique<DebugScene>();
-	sceneArr_[CG] = std::make_unique<CGScnene>();
 	sceneArr_[ALTITLE] = std::make_unique<ALTitleScene>();
 	sceneArr_[ALGAME] = std::make_unique<ALGameScene>();
-
+	sceneArr_[CG] = std::make_unique<CGScnene>();
 
 	sceneName_.clear();
 	sceneName_.push_back("DEBUG");
 	sceneName_.push_back("ALTITLE");
 	sceneName_.push_back("ALGAME");
-
+	sceneName_.push_back("CG");
 
 	/*
 	sceneArr_[TITLE] = std::make_unique<TitleScene>();

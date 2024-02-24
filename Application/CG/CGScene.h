@@ -28,5 +28,9 @@ private:
 
 	std::unique_ptr<GameObject>object;
 
+	std::unique_ptr<GameObject>terrain;
+
+	Vector3 pointLightPos_{ 0,2,0 };
+
 	int ball;
 };

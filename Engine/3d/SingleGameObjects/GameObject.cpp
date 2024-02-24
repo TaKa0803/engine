@@ -12,8 +12,8 @@ void GameObject::Update() {
 	world_.UpdateMatrix();
 }
 
-void GameObject::Draw(const Camera& camera, int tex) {
-	model_->Draw(world_.matWorld_, camera,tex);
+void GameObject::Draw(const Camera& camera, Vector3 pointlight, int tex) {
+	model_->Draw(world_.matWorld_, camera,pointlight,tex);
 }
 
 void GameObject::Debug(const char* name)

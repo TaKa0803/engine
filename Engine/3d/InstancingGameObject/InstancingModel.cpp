@@ -82,7 +82,6 @@ void InstancingModel::AddWorld(const WorldTransform& world, const Vector4& color
 
 void InstancingModel::Draw(const Matrix4x4& viewProjection, int texture) {
 
-	tag_;
 	int index = 0;
 	for (auto& world : worlds_) {
 		Matrix4x4 worldM = world->world.matWorld_;

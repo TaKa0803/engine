@@ -157,13 +157,8 @@ Model* Model::CreateFromOBJ(const std::string& filePath)
 	wvpDataTea->World = MakeIdentity4x4();
 #pragma endregion
 
-
-
 	Model* model =new Model();
 	model->Initialize(modeltea.material.textureFilePath,UINT(modeltea.vertices.size()),vertexRtea, vertexBufferViewtea, wvpResourceTea, wvpDataTea);
-
-
-	
 	
 	return model;
 }
@@ -221,7 +216,7 @@ void Model::Initialize(
 	materialData_->shininess = 20.0f;
 #pragma endregion
 
-#pragma region ライト
+#pragma region ディレクションライト
 	//ディレクションライトのマテリアルリソース
 	directionalLightResource_ = CreateBufferResource(DXF_->GetDevice(), sizeof(DirectionalLight));
 	directionalLightResource_->Map(0, nullptr, reinterpret_cast<void**>(&directionalLightData_));
@@ -236,12 +231,19 @@ void Model::Initialize(
 	cameraData_->worldPosition = { 0,0,0 };
 #pragma endregion
 
+#pragma region ポイントライト
+	pointlightResource_ = CreateBufferResource(DXF_->GetDevice(), sizeof(PointLight));
+	pointlightResource_->Map(0, nullptr, reinterpret_cast<void**>(&pointLightData_));
+	pointLightData_->color = { 1,1,1,1 };
+	pointLightData_->intensity = 1.0f;
+#pragma endregion
+
 
 	Log("Model is Created!\n");
 }
 
 
-void Model::Draw(const Matrix4x4& worldMatrix, const Camera& camera,int texture)
+void Model::Draw(const Matrix4x4& worldMatrix, const Camera& camera,Vector3 pointlight, int texture)
 {
 	grarphics_->PreDraw(DXF_->GetCMDList());
 
@@ -255,6 +257,8 @@ void Model::Draw(const Matrix4x4& worldMatrix, const Camera& camera,int texture)
 
 	cameraData_->worldPosition = camera.GetMainCamera().GetMatWorldTranslate();
 
+	pointLightData_->position = pointlight;
+
 	DXF_->GetCMDList()->IASetVertexBuffers(0, 1, &vertexBufferView_);
 	//形状を設定、PSOに設定しているものとはまた別、同じものを設定すると考えておけばいい
 	DXF_->GetCMDList()->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
@@ -266,6 +270,9 @@ void Model::Draw(const Matrix4x4& worldMatrix, const Camera& camera,int texture)
 	DXF_->GetCMDList()->SetGraphicsRootConstantBufferView(3, directionalLightResource_->GetGPUVirtualAddress());
 	//カメラ位置転送
 	DXF_->GetCMDList()->SetGraphicsRootConstantBufferView(4, cameraResource_->GetGPUVirtualAddress());
+	
+	DXF_->GetCMDList()->SetGraphicsRootConstantBufferView(5, pointlightResource_->GetGPUVirtualAddress());
+
 	if (texture == -1) {
 		DXF_->GetCMDList()->SetGraphicsRootDescriptorTable(2, texture_);
 	}
@@ -294,6 +301,7 @@ void Model::DebugParameter(const char* name)
 	bool usePhong = materialData_->enablePhongReflection;
 	float shininess = materialData_->shininess;
 
+	bool usePointLight = materialData_->enablePointLight;
 
 	if (ImGui::BeginMenu(name)) {
 		ImGui::Checkbox("Texture", &useTexture);
@@ -316,6 +324,9 @@ void Model::DebugParameter(const char* name)
 		ImGui::ColorEdit4("light color", &directionalLightData_->color.x);
 		ImGui::Checkbox("PhongReflection", &usePhong);
 		ImGui::DragFloat("Shininess", &shininess);
+		ImGui::Checkbox("enable pointlight", &usePointLight);
+		ImGui::DragFloat("p light intencity", &pointLightData_->intensity,0.01f);
+		ImGui::DragFloat3("p light pos", &pointLightData_->position.x, 0.1f);
 		ImGui::EndMenu();
 	}
 	
@@ -328,6 +339,7 @@ void Model::DebugParameter(const char* name)
 	materialData_->discardNum= discardnum;
 	materialData_->enablePhongReflection = usePhong;
 	materialData_->shininess = shininess;
+	materialData_->enablePointLight = usePointLight;
 #endif // _DEBUG
 	
 }

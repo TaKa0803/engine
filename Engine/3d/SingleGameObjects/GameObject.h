@@ -23,7 +23,7 @@ public:
 
 	virtual void Update();
 
-	virtual void Draw(const Camera&camera,int tex =-1);
+	virtual void Draw(const Camera&camera, Vector3 pointlight = { 0,0,0 },int tex =-1);
 
 	virtual void Debug(const char*name);
 };

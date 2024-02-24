@@ -91,6 +91,7 @@ struct Material {
 	//光沢度
 	float shininess = 1.0f;
 
+	int32_t enablePointLight=true;
 };
 
 struct DirectionalLight {
@@ -109,5 +110,13 @@ struct Segment {
 	Vector3 diff;
 };
 
+
+//ポイントライト
+struct PointLight
+{
+	Vector4 color;//ライトの色
+	Vector3 position;//座標
+	float intensity;//光度
+};
 
 #pragma endregion

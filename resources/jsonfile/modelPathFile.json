@@ -10,7 +10,8 @@
     "LFoot": [ "resources/AppResource/Object", "LFoot" ],
     "RFoot": [ "resources/AppResource/Object", "RFoot" ],
     "talker": [ "resources/AppResource", "tolker" ],
-    "sphere": [ "resources/SystemResources", "sphere"]
+    "sphere": [ "resources/SystemResources", "sphere" ],
+    "terrain": [ "resources/AppResource", "terrain" ]
   },
   "InstancingmodelPathFile": {
     "weapon": [ "resources/AppResource", "Weapon", 64 ],

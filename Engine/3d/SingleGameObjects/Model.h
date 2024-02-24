@@ -45,7 +45,7 @@ public:
 	/// <param name="WVP"></param>
 	/// <param name="viewProjection"></param>
 	/// <param name="texture"></param>
-	void Draw(const Matrix4x4& WVP, const Camera& camera, int texture = -1);
+	void Draw(const Matrix4x4& WVP, const Camera& camera, Vector3 pointlight = { 0,0,0 }, int texture = -1);
 
 	/// <summary>
 	/// Debug用ImGui表示
@@ -137,15 +137,21 @@ private:
 	ID3D12Resource* wvpResource_;
 	WorldTransformation* wvpData_ = nullptr;
 
+	//マテリアル
 	ID3D12Resource* materialResource_;
 	Material* materialData_ = nullptr;
 
+	//ディレクションライト
 	ID3D12Resource* directionalLightResource_;
 	DirectionalLight* directionalLightData_ = nullptr;
 
+	//カメラ
 	ID3D12Resource* cameraResource_;
 	Camera4GPU* cameraData_ = nullptr;
 
+	//ポイントライト
+	ID3D12Resource* pointlightResource_;
+	PointLight* pointLightData_;
 
 	Vector3 uvpos{};
 	Vector3 uvscale{ 1.0f,1.0f,1.0f };
