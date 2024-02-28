@@ -219,7 +219,7 @@ void ALEnemy::Update() {
 
 }
 
-void ALEnemy::Collision(SphereCollider* collider) {
+bool ALEnemy::Collision(SphereCollider* collider) {
 
 	Vector3 backVec;
 	if (collider_->IsCollision(collider, backVec)) {
@@ -243,8 +243,10 @@ void ALEnemy::Collision(SphereCollider* collider) {
 
 		HP_--;
 
+		return true;
 	}
 
+	return false;
 }
 
 void ALEnemy::OshiDashi(SphereCollider* collider)

@@ -15,6 +15,7 @@
 #include"Sprite/Sprite.h"
 #include"AL/BrokenBody/BrokenBody.h"
 
+
 class ALGameScene : public IScene {
 
 public:
@@ -41,6 +42,10 @@ private:
 	void ClearUIUpdate();
 
 	void LimitUI();
+
+	void ShakeStart(int count);
+
+	void CameraShake();
 private:
 	//キー入力
 	Input* input_ = nullptr;
@@ -139,5 +144,8 @@ private:
 
 	int bgmClear_;
 
-	
+	bool isShake_ = false;
+	int cameraShakeCount_=0;
+	Vector2 shakenum = {0,0};
+	Vector3 tempP_;
 };

@@ -122,7 +122,7 @@ PixelShaderOutput main(VertexShaderOutput input)
                     //ライトへの線
                     float32_t3 direction = normalize(gPointLight.position-input.worldPosition);
                     
-                    float32_t3 halfVector2 = normalize(-pointLightDirection + pointlightColor);
+                    float32_t3 halfVector2 = normalize(-pointLightDirection + direction);
                 
                     float NDot = dot(normalize(input.normal), halfVector2);
                     float specularPoww = pow(saturate(NDot), gMaterial.shininess);

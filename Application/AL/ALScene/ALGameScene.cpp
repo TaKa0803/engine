@@ -6,6 +6,7 @@
 #include"TextureManager/TextureManager.h"
 #include"AudioManager/AudioManager.h"
 #include"Scenes/Scenes.h"
+#include"RandomNum/RandomNum.h"
 
 ALGameScene::ALGameScene() {
 	input_ = Input::GetInstance();
@@ -166,6 +167,7 @@ void ALGameScene::Update() {
 		camera_->AddCameraR_X(stick.y);
 		camera_->AddCameraR_Y(stick.x);
 
+		CameraShake();
 
 		camera_->Update();
 
@@ -241,8 +243,6 @@ void ALGameScene::Draw() {
 
 	//インスタンシングのモデルを全描画
 	InstancingModelManager::GetInstance()->DrawAllModel(camera_->GetViewProjectionMatrix());
-
-
 }
 
 void ALGameScene::DebugWindows() {
@@ -274,7 +274,9 @@ void ALGameScene::Collision() {
 		for (auto& enemy : enemies_) {
 			if (!enemy->GetDead()) {
 				if (player_->IsPlayerATK()) {
-					enemy->Collision(player_->GetCollider());
+					if (enemy->Collision(player_->GetCollider())) {
+						ShakeStart(3);
+					}
 				}
 				enemy->OshiDashi(player_->GetCollider());
 
@@ -493,14 +495,14 @@ void ALGameScene::ClearUIUpdate() {
 
 			int count3 = (int)(Count - num1 - num2) / 100;
 
-			int num3 = count3 % 10;
+			int num3 = count3 % 100;
 
 			num100_->SetTVTranslate({ ((float)num3 / 10.0f) - 0.1f ,0 });
 
 		}
 		else {
-			num100_->SetTVTranslate({ -1.0f, 0 });
-			num10_->SetTVTranslate({ -1.0f, 0 });
+			num100_->SetTVTranslate({0.9f, 0 });
+			num10_->SetTVTranslate({ 0.9f, 0 });
 		}
 
 
@@ -560,4 +562,38 @@ void ALGameScene::LimitUI() {
 
 
 	num10_->SetTVTranslate({ ((float)minute2 / 10.0f) - 0.1f,0 });
+}
+
+void ALGameScene::ShakeStart(int count)
+{
+	if (!isShake_) {
+		tempP_ = {0,0,0};
+		isShake_ = true;
+	}
+	
+	cameraShakeCount_ += count;
+	
+}
+
+void ALGameScene::CameraShake()
+{
+	if (isShake_) {
+
+		Vector3 pos = {
+		RandomNumber::Get(-0.5f,0.5f),
+		RandomNumber::Get(-0.5f,0.5f),
+		0
+		};
+
+		Vector3 newp = tempP_ + pos;
+
+		camera_->SetMainCameraPos(newp);
+
+		if (cameraShakeCount_-- <= 0) {
+			isShake_ = false;
+			cameraShakeCount_ = 0;
+			camera_->SetMainCameraPos(tempP_);
+		}
+
+	}
 }

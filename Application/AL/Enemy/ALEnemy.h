@@ -19,7 +19,7 @@ public:
 	/// </summary>
 	void Update();
 
-	void Collision(SphereCollider* collider);
+	bool Collision(SphereCollider* collider);
 
 	//osimodosi
 	void OshiDashi(SphereCollider* collider);
