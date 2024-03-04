@@ -72,6 +72,8 @@
     <ClCompile Include="Application\AL\BrokenBody\BrokenBody.cpp" />
     <ClCompile Include="Application\AL\Enemy\ALEnemy.cpp" />
     <ClCompile Include="Application\AL\EnemyPopManager\EnemyPopManager.cpp" />
+    <ClCompile Include="Application\teamProc\TeamProj.cpp" />
+    <ClCompile Include="Application\teamProc\teamP.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application\AL\Plane\Plane.h" />
@@ -138,6 +140,8 @@
     <ClInclude Include="Application\AL\BrokenBody\BrokenBody.h" />
     <ClInclude Include="Application\AL\Enemy\ALEnemy.h" />
     <ClInclude Include="Application\AL\EnemyPopManager\EnemyPopManager.h" />
+    <ClInclude Include="Application\teamProc\TeamProj.h" />
+    <ClInclude Include="Application\teamProc\teamP.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\jsonfile\enemyPopData.json" />

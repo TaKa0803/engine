@@ -7,5 +7,6 @@ enum SCENE {
 	CG,
 	ALTITLE,
 	ALGAME,
+	Week4,
 	_SceneCount	//使うな
 };

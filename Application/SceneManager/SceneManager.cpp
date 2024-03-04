@@ -10,6 +10,7 @@
 #include"CG/CGScene.h"
 #include"AL/ALScene/ALTitleScene.h"
 #include"AL/ALScene/ALGameScene.h"
+#include"teamProc/TeamProj.h"
 #pragma endregion
 
 
@@ -25,12 +26,15 @@ void SceneManager::Initialize()
 	sceneArr_[ALTITLE] = std::make_unique<ALTitleScene>();
 	sceneArr_[ALGAME] = std::make_unique<ALGameScene>();
 	sceneArr_[CG] = std::make_unique<CGScnene>();
+	sceneArr_[Week4] = std::make_unique<TeamProj>();
+
 
 	sceneName_.clear();
 	sceneName_.push_back("DEBUG");
 	sceneName_.push_back("ALTITLE");
 	sceneName_.push_back("ALGAME");
 	sceneName_.push_back("CG");
+	sceneName_.push_back("Week4");
 
 	/*
 	sceneArr_[TITLE] = std::make_unique<TitleScene>();
@@ -40,7 +44,7 @@ void SceneManager::Initialize()
 
 
 	//初期シーン設定
-	IScene::SetSceneNo(ALTITLE);
+	IScene::SetSceneNo(Week4);
 
 }
 

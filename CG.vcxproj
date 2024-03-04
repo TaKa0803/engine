@@ -124,6 +124,7 @@ copy "$(WindowsSdkDir)bin\$(TargetPlatformVersion)\x64\dxil.dll" "$(TargetDir)dx
     <ClCompile Include="Application\Scenes\DebugScene.cpp" />
     <ClCompile Include="Application\Scenes\IScene.cpp" />
     <ClCompile Include="Application\Scenes\MT4Scene.cpp" />
+    <ClCompile Include="Application\teamProc\teamP.cpp" />
     <ClCompile Include="Engine\3d\Collider\ColliderOBB\OBBCollider.cpp" />
     <ClCompile Include="Engine\3d\Collider\ColliderPlane\PlaneCollider.cpp" />
     <ClCompile Include="Engine\3d\Collider\IsCollisions.cpp" />
@@ -172,6 +173,7 @@ copy "$(WindowsSdkDir)bin\$(TargetPlatformVersion)\x64\dxil.dll" "$(TargetDir)dx
     <ClCompile Include="externals\Imgui\imgui_tables.cpp" />
     <ClCompile Include="externals\Imgui\imgui_widgets.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Application\teamProc\TeamProj.cpp" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="resources\shaders\InstancingObject.PS.hlsl">
@@ -216,6 +218,7 @@ copy "$(WindowsSdkDir)bin\$(TargetPlatformVersion)\x64\dxil.dll" "$(TargetDir)dx
     <ClInclude Include="Application\Scenes\DebugScene.h" />
     <ClInclude Include="Application\Scenes\MT4Scene.h" />
     <ClInclude Include="Application\Scenes\Scenes.h" />
+    <ClInclude Include="Application\teamProc\teamP.h" />
     <ClInclude Include="Engine\3d\Collider\ColliderOBB\OBBCollider.h" />
     <ClInclude Include="Engine\3d\Collider\ColliderPlane\PlaneCollider.h" />
     <ClInclude Include="Engine\3d\Collider\IsCollisions.h" />
@@ -264,6 +267,7 @@ copy "$(WindowsSdkDir)bin\$(TargetPlatformVersion)\x64\dxil.dll" "$(TargetDir)dx
     <ClInclude Include="externals\Imgui\imstb_rectpack.h" />
     <ClInclude Include="externals\Imgui\imstb_textedit.h" />
     <ClInclude Include="externals\Imgui\imstb_truetype.h" />
+    <ClInclude Include="Application\teamProc\TeamProj.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="externals\Imgui\LICENSE.txt" />
