@@ -307,24 +307,29 @@ void Model::DebugParameter(const char* name)
 		ImGui::Checkbox("Texture", &useTexture);
 		ImGui::Checkbox("Shader", &useShader);
 		ImGui::Checkbox("HalfLambert", &useHalf);
-		ImGui::ColorEdit4("color", &color.x);
+		ImGui::Checkbox("PhongReflection", &usePhong);
+		ImGui::Checkbox("enable pointlight", &usePointLight);
+
+		ImGui::ColorEdit4("Material color", &color.x);
 		if (ImGui::Combo("blendmode", &currentItem, items, IM_ARRAYSIZE(items))) {
 			blend = static_cast<BlendMode>(currentItem);
 		}
 		ImGui::DragFloat("discardNum", &discardnum, 0.01f);
 
-			ImGui::Text("UV");
-			ImGui::DragFloat2("uv pos", &uvpos.x, 0.1f);
+		ImGui::Text("UV");
+		ImGui::DragFloat2("uv pos", &uvpos.x, 0.1f);
 		ImGui::DragFloat("uv rotate", &uvrotate.z, 0.1f);
 		ImGui::DragFloat2("uv scale", &uvscale.x, 0.1f);
 
-		ImGui::Text("color");
-		ImGui::DragFloat3("light direction", &directionalLightData_->direction.x, 0.01f);
-		ImGui::DragFloat("light intensity", &directionalLightData_->intensity, 0.01f);
-		ImGui::ColorEdit4("light color", &directionalLightData_->color.x);
-		ImGui::Checkbox("PhongReflection", &usePhong);
+		ImGui::Text("DirectionalLight");
+		ImGui::DragFloat3("D light direction", &directionalLightData_->direction.x, 0.01f);
+		ImGui::DragFloat("D light intensity", &directionalLightData_->intensity, 0.01f);
+		ImGui::ColorEdit4("D light color", &directionalLightData_->color.x);
+		
+		ImGui::Text("Blinn Phong Reflection");
 		ImGui::DragFloat("Shininess", &shininess);
-		ImGui::Checkbox("enable pointlight", &usePointLight);
+		
+		ImGui::Text("PointLight");
 		ImGui::DragFloat("p light intencity", &pointLightData_->intensity,0.01f);
 		ImGui::DragFloat3("p light pos", &pointLightData_->position.x, 0.1f);
 		ImGui::EndMenu();

@@ -32,6 +32,7 @@ struct PixelShaderOutput
     float32_t4 color : SV_TARGET0;
 };
 
+//ディレクションライト
 struct DirectionalLight
 {
     float32_t4 color;
@@ -41,6 +42,7 @@ struct DirectionalLight
 
 ConstantBuffer<DirectionalLight> gDirectionalLight : register(b1);
 
+//カメラの行列
 struct Camera
 {
     float32_t3 worldPosition;
@@ -48,6 +50,7 @@ struct Camera
 
 ConstantBuffer<Camera> gCamera : register(b2);
 
+//ポイントライト
 struct PointLight
 {
     float32_t4 color;
@@ -119,7 +122,7 @@ PixelShaderOutput main(VertexShaderOutput input)
                     //ライトの色
                     float32_t3 pointlightColor = gPointLight.color.rgb * gPointLight.intensity;
                     
-                    //ライトへの線
+                    //ライトへの線w
                     float32_t3 direction = normalize(gPointLight.position-input.worldPosition);
                     
                     float32_t3 halfVector2 = normalize(-pointLightDirection + direction);
@@ -128,14 +131,14 @@ PixelShaderOutput main(VertexShaderOutput input)
                     float specularPoww = pow(saturate(NDot), gMaterial.shininess);
                 
                 //拡散反射の色
-                    float32_t3 diffucepoint = gMaterial.color.rgb * textureColor.rgb * gPointLight.color.rgb * cos * gPointLight.intensity;
+                    float32_t3 diffucepoint = pointlightColor * textureColor.rgb * gPointLight.color.rgb * cos * gPointLight.intensity;
                 //鏡面反射の色(反射色は白色を指定中)
                     float32_t3 specularpoint = pointlightColor * specularPow * float32_t3(1.0f, 1.0f, 1.0f);
            
                    
                     //計算結果を合わせる
-                    //output.color.rgb = diffuce + specular + diffucepoint + specularPoww;
-                    output.color.rgb =  diffucepoint + specularPoww;
+                    output.color.rgb = diffuce + specular + diffucepoint + specularPoww;
+                    //output.color.rgb =  diffucepoint + specularPoww;
                 
                  //アルファの処理
                     output.color.a = gMaterial.color.a * textureColor.a;
