@@ -97,7 +97,7 @@ ALPlayer::ALPlayer() {
 
 	textureData = TextureManager::LoadTex("resources/AppResource/Object/player.png");
 
-
+	shadow = std::make_unique<InstancingGameObject>();
 
 	mWorlds[HEAD].parent_ = (&world_);
 	mWorlds[LARM].parent_ = (&mWorlds[HEAD]);
@@ -178,6 +178,8 @@ ALPlayer::ALPlayer() {
 	punchSound_ = AudioManager::LoadSoundNum("com1");
 	kickSound_ = AudioManager::LoadSoundNum("com2");
 	drilSound_ = AudioManager::LoadSoundNum("com3");
+
+	
 }
 
 ALPlayer::~ALPlayer() {
@@ -202,6 +204,11 @@ void ALPlayer::Initialize() {
 	ATKConboCount = 1;
 	ATKAnimationSetup_ = false;
 
+	shadow->Initialize("DZone");
+	shadow->SetParent(&world_);
+	shadow->SetColor({ 0,0,0,1 });
+	shadow->SetTranslate({ 0,-1.45f,0 });
+	shadow->SetScale(1.5f);
 }
 
 void ALPlayer::Update() {
@@ -229,6 +236,8 @@ void ALPlayer::Update() {
 	}
 
 	collider_->Update();
+
+	shadow->Update();
 }
 
 void (ALPlayer::* ALPlayer::StateInitialize[])() = {
@@ -257,6 +266,8 @@ void ALPlayer::Draw() {
 
 		Index++;
 	}
+
+	shadow->Draw();
 
 	//collider_->Draw();
 }

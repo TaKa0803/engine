@@ -21,6 +21,13 @@ void ALEnemy::Initialize(const Vector3& position, const WorldTransform* playerWo
 
 	world_.rotate_.y = RandomNumber::Get(0, 3.14f);
 
+	shadow = std::make_unique<InstancingGameObject>();
+	shadow->Initialize("DZone");
+	shadow->SetParent(&world_);
+	shadow->SetColor({ 0,0,0,1 });
+	shadow->SetTranslate({ 0,-1.45f,0 });
+	shadow->SetScale(1.5f);
+
 	mWorlds[HEAD].parent_ = (&world_);
 	mWorlds[LARM].parent_ = (&mWorlds[HEAD]);
 	mWorlds[RARM].parent_ = (&mWorlds[HEAD]);
@@ -217,6 +224,7 @@ void ALEnemy::Update() {
 	collider_->Update();
 
 
+	shadow->Update();
 }
 
 bool ALEnemy::Collision(SphereCollider* collider) {
@@ -269,5 +277,6 @@ void ALEnemy::Draw() {
 		IndexX++;
 	}
 
+	shadow->Draw();
 	//collider_->Draw();
 }

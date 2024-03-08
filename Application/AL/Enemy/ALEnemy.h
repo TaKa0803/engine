@@ -39,6 +39,10 @@ private:
 
 	std::unique_ptr<SphereCollider>collider_;
 
+#pragma region 影
+	std::unique_ptr<InstancingGameObject>shadow;
+#pragma endregion
+
 #pragma region モデル関係
 	//モデルの数
 	static const int modelNum_ = 5;

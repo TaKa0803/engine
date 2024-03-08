@@ -114,6 +114,7 @@ copy "$(WindowsSdkDir)bin\$(TargetPlatformVersion)\x64\dxil.dll" "$(TargetDir)dx
     <ClCompile Include="Application\AL\BrokenBody\BrokenBody.cpp" />
     <ClCompile Include="Application\AL\EnemyPopManager\EnemyPopManager.cpp" />
     <ClCompile Include="Application\AL\Enemy\ALEnemy.cpp" />
+    <ClCompile Include="Application\Effect\Impact\Impact.cpp" />
     <ClCompile Include="Application\AL\Player\ALPlayer.cpp" />
     <ClCompile Include="Application\CG\CGScene.cpp" />
     <ClCompile Include="Application\Effect\dZoneE\DZone.cpp" />
@@ -212,6 +213,7 @@ copy "$(WindowsSdkDir)bin\$(TargetPlatformVersion)\x64\dxil.dll" "$(TargetDir)dx
     <ClInclude Include="Application\Effect\EffectExplosion.h" />
     <ClInclude Include="Application\Effect\EffectSphereExplo\ESphereExplo.h" />
     <ClInclude Include="Application\AL\Plane\Plane.h" />
+    <ClInclude Include="Application\Effect\Impact\Impact.h" />
     <ClInclude Include="Application\SceneManager\SceneManager.h" />
     <ClInclude Include="Application\Scenes\DebugScene.h" />
     <ClInclude Include="Application\Scenes\MT4Scene.h" />

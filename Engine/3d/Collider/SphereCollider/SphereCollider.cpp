@@ -53,7 +53,7 @@ void SphereCollider::Update() {
 void SphereCollider::Draw() {
 #ifdef _DEBUG
 	if (isDraw_) {
-		InstancingModelManager::GetInstance()->SetData(tag_, world_, color);
+		InstancingModelManager::GetInstance()->SetData(tag_, world_, color_);
 	}
 #endif // _DEBUG
 
@@ -251,10 +251,10 @@ void SphereCollider::Debug(const char* name) {
 void SphereCollider::SetColor(bool hit)
 {
 	if (hit) {
-		color = hitColor;
+		color_ = hitColor;
 	}
 	else {
-		color = normalColor;
+		color_ = normalColor;
 	}
 }
 

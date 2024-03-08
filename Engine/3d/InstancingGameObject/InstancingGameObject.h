@@ -17,7 +17,7 @@ protected:
 	InstancingModelManager* IMM_=nullptr;
 
 	//色
-	Vector4 color = { 1,1,1,1 };
+	Vector4 color_ = { 1,1,1,1 };
 public:
 	//ワールド取得
 	const WorldTransform& GetWorld()const { return world_; }
@@ -34,6 +34,9 @@ public:
 	void SetRotateY(const float rotate) { world_.rotate_.y = rotate; }
 
 	void SetParent(const WorldTransform* parent) { world_.parent_ = parent; }
+
+	void SetColor(const Vector4& color) { color_ = color; }
+
 	//開放処理
 	virtual ~InstancingGameObject();
 

@@ -9,7 +9,6 @@
     "RArm": [ "resources/AppResource/Object", "RArm" ],
     "LFoot": [ "resources/AppResource/Object", "LFoot" ],
     "RFoot": [ "resources/AppResource/Object", "RFoot" ],
-    "talker": [ "resources/AppResource", "tolker" ],
     "sphere": [ "resources/SystemResources", "sphere" ],
     "terrain": [ "resources/AppResource", "terrain" ]
   },
@@ -30,8 +29,7 @@
     "Flag": [ "resources/AppResource/Object", "Flag", 10 ],
     "EBox": [ "resources/AppResource/Particle", "EBox", 50000 ],
     "SkyDome": [ "resources/AppResource", "Skydome", 5 ],
-    "talker": [ "resources/AppResource", "tolker", 5 ],
-    "parrot": [ "resources/AppResource", "parrot", 1000 ],
-    "PAmmo": [ "resources/AppResource", "LongRangeSound", 50 ]
+    "Impact": [ "resources/AppResource", "Impact", 100 ],
+    "DZone": [ "resources/AppResource", "dangerSphere",1000 ]
   }
 }

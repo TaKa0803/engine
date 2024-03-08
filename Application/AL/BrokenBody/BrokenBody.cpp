@@ -50,7 +50,7 @@ void BrokenBody::Draw() {
 	for (auto& eData : effectDatas_) {
 		eData->world.UpdateMatrix();
 
-		IMM_->SetData(tag_, eData->world,color);
+		IMM_->SetData(tag_, eData->world,color_);
 	}
 
 }

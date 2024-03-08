@@ -97,7 +97,7 @@ void OBBCollider::Draw()
 {
 #ifdef _DEBUG
 	if (isDraw_) {
-		InstancingModelManager::GetInstance()->SetData(tag_, world_,color);
+		InstancingModelManager::GetInstance()->SetData(tag_, world_,color_);
 	}
 #endif // _DEBUG
 }
@@ -225,10 +225,10 @@ bool OBBCollider::IsCollision(const Segment& seg) {
 void OBBCollider::SetColor(bool hit)
 {
 	if (hit) {
-		color = hitColor;
+		color_ = hitColor;
 	}
 	else {
-		color = normalColor;
+		color_ = normalColor;
 	}
 }
 

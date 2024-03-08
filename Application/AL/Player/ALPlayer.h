@@ -132,6 +132,11 @@ private:
 	int textureData = 0;
 #pragma endregion
 
+#pragma region 影
+	std::unique_ptr<InstancingGameObject>shadow;
+#pragma endregion
+
+
 	//移動速度
 	float spd_ = 0.5f;
 
@@ -233,5 +238,7 @@ private:
 	int kickSound_;
 
 	int drilSound_;
+
+
 
 };
