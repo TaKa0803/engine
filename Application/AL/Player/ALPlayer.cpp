@@ -97,6 +97,8 @@ ALPlayer::ALPlayer() {
 
 	textureData = TextureManager::LoadTex("resources/AppResource/Object/player.png");
 
+	impactE_ = std::make_unique<EffectImpact>();
+
 	shadow = std::make_unique<InstancingGameObject>();
 
 	mWorlds[HEAD].parent_ = (&world_);
@@ -209,6 +211,8 @@ void ALPlayer::Initialize() {
 	shadow->SetColor({ 0,0,0,1 });
 	shadow->SetTranslate({ 0,-1.45f,0 });
 	shadow->SetScale(1.5f);
+
+	impactE_->Initialize();
 }
 
 void ALPlayer::Update() {
@@ -238,6 +242,8 @@ void ALPlayer::Update() {
 	collider_->Update();
 
 	shadow->Update();
+
+	impactE_->Update();
 }
 
 void (ALPlayer::* ALPlayer::StateInitialize[])() = {
@@ -268,6 +274,8 @@ void ALPlayer::Draw() {
 	}
 
 	shadow->Draw();
+
+	impactE_->Draw();
 
 	//collider_->Draw();
 }
@@ -521,6 +529,8 @@ void ALPlayer::UpdateATK() {
 					AudioManager::PlaySoundData(drilSound_,0.05f);
 				}
 			}
+
+			impactE_->Spawn(world_);
 		}
 		else {
 

@@ -23,9 +23,9 @@ void ALEnemy::Initialize(const Vector3& position, const WorldTransform* playerWo
 
 	shadow = std::make_unique<InstancingGameObject>();
 	shadow->Initialize("DZone");
-	shadow->SetParent(&world_);
+	
 	shadow->SetColor({ 0,0,0,1 });
-	shadow->SetTranslate({ 0,-1.45f,0 });
+	shadow->SetTranslate({ world_.translate_.x,0,world_.translate_.z });
 	shadow->SetScale(1.5f);
 
 	mWorlds[HEAD].parent_ = (&world_);
@@ -223,7 +223,7 @@ void ALEnemy::Update() {
 
 	collider_->Update();
 
-
+	shadow->SetTranslate({ world_.translate_.x,0.1f,world_.translate_.z });
 	shadow->Update();
 }
 

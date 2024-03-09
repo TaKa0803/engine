@@ -2,27 +2,11 @@
 #include"Vector3.h"
 #include"InstancingGameObject/InstancingGameObject.h"
 
-#include<vector>
+#include<list>
 
 
-struct ImpactData
-{
-	WorldTransform pos;
-
-	Vector3 velo;
-};
 
 class EffectImpact : public InstancingGameObject {
-
-public://シングルトンパターン
-	static EffectImpact* GetInstance();
-
-private://シングルトンパターン
-
-	EffectImpact() = default;
-	~EffectImpact() = default;
-	EffectImpact(const EffectImpact& o) = delete;
-	const EffectImpact& operator=(const EffectImpact& o) = delete;
 
 public:
 
@@ -31,7 +15,24 @@ public:
 	void Update();
 
 	void Draw();
-private:
-	std::vector<ImpactData>datas_;
 
+	void Spawn(const WorldTransform playerW);
+private:
+	struct ImpactData
+	{
+		WorldTransform base;
+
+		WorldTransform center;
+
+		WorldTransform pos;
+
+		Vector3 velo;
+
+		float milit=60.0f;
+	};
+
+
+	std::list<ImpactData*>datas_;
+
+	int spawnNum = 10;
 };

@@ -3,10 +3,10 @@
 #include"Input/Input.h"
 #include"Camera/Camera.h"
 #include"SphereCollider/SphereCollider.h"
-#include<vector>
+#include"Effect/Impact/Impact.h"
 #include"AL/items.h"
 
-
+#include<vector>
 
 
 
@@ -175,6 +175,8 @@ private:
 	MoveState moveState_ = NoneS;
 
 #pragma region 攻撃に関する変数
+
+	std::unique_ptr<EffectImpact>impactE_;
 
 	//攻撃に関するデータ
 	std::string atkDataPass_ = "resources/jsonfile/PlayerATKData.json";
