@@ -22,7 +22,7 @@ public:
 	bool Collision(SphereCollider* collider);
 
 	//osimodosi
-	void OshiDashi(SphereCollider* collider);
+	Vector3 OshiDashi(SphereCollider* collider);
 
 	/// <summary>
 	/// 
@@ -31,6 +31,11 @@ public:
 
 	//死んだか否か
 	bool GetDead() { return isDead_; }
+
+	//すでに当たっているか否か
+	bool isHit() { return isHit_; }
+
+	void AddTranslate(const Vector3& translate) { world_.translate_ += translate; }
 
 	SphereCollider* GetCollider() { return collider_.get(); }
 private:
@@ -134,4 +139,5 @@ private:
 	//破壊音
 	int breakSound_;
 
+	bool isHit_ =false;
 };

@@ -283,8 +283,9 @@ void ALGameScene::Collision() {
 				//敵同士の当たり判定
 				int e2Num = 0;
 				for (auto& enemy2 : enemies_) {
-					if (!enemy2->GetDead()&&e1Num!=e2Num) {
-						enemy->OshiDashi(enemy2->GetCollider());
+					if (!enemy2->GetDead()&&!enemy2->isHit() && e1Num != e2Num) {
+						Vector3 backV = enemy->OshiDashi(enemy2->GetCollider());
+						enemy2->AddTranslate(-backV);
 					}
 					e2Num++;
 				}

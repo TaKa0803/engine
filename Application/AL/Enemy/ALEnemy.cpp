@@ -73,6 +73,7 @@ void ALEnemy::Initialize(const Vector3& position, const WorldTransform* playerWo
 
 void ALEnemy::Update() {
 
+	isHit_ = false;
 
 	if (state_ == Normal) {
 		//pk
@@ -257,15 +258,19 @@ bool ALEnemy::Collision(SphereCollider* collider) {
 	return false;
 }
 
-void ALEnemy::OshiDashi(SphereCollider* collider)
+Vector3 ALEnemy::OshiDashi(SphereCollider* collider)
 {
+	isHit_ = true;
 
 	Vector3 backVec;
 	if (collider_->IsCollision(collider, backVec)) {
 		backVec.y = 0;
+		backVec /= 2;
 		world_.translate_ += backVec;
+
 	}
 
+	return backVec;
 }
 
 void ALEnemy::Draw() {
