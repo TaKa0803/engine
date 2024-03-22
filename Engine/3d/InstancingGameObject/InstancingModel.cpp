@@ -136,6 +136,10 @@ void InstancingModel::Draw(const Matrix4x4& viewProjection, int texture) {
 		DXF_->GetCMDList()->DrawInstanced(point_, index, 0, 0);
 
 	}
+	
+	//追加されたデータ削除
+	worlds_.clear();
+
 }
 
 void InstancingModel::Debug(const char* name)

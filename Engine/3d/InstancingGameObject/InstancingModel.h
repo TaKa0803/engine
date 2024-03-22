@@ -110,6 +110,11 @@ public:
 	const Vector3 GetUVScale()const { return uvWorld_.scale_; }
 
 	const std::string GetTag() { return tag_; }
+
+/// <summary>
+/// worldの数取得
+/// </summary>
+	const float GetWorldNum() { return (float)worlds_.size(); }
 private:
 
 

@@ -223,8 +223,8 @@ void ALEnemy::Update() {
 
 	collider_->Update();
 
-	shadow->SetTranslate({ world_.translate_.x,0.1f,world_.translate_.z });
-	shadow->Update();
+	//shadow->SetTranslate({ world_.translate_.x,0.1f,world_.translate_.z });
+	//shadow->Update();
 }
 
 bool ALEnemy::Collision(SphereCollider* collider) {
@@ -277,6 +277,6 @@ void ALEnemy::Draw() {
 		IndexX++;
 	}
 
-	shadow->Draw();
+	//shadow->Draw();
 	//collider_->Draw();
 }

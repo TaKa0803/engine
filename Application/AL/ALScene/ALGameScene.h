@@ -67,6 +67,8 @@ private:
 	int limitMinute = 0;
 	const int maxmilitMinute = 60 * 60;
 
+	std::unique_ptr<InstancingGameObject>coin_;
+
 	enum Scene {
 		Game,
 		Clear,

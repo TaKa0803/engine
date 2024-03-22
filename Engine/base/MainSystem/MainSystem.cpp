@@ -98,9 +98,6 @@ void MainSystem::MainRoop() {
 		//ImGui
 		imguiManager_->PreUpdate();
 
-		//インスタンシングの更新前処理
-		instancingMM_->PreUpdate();
-
 		//キー入力
 		input_->Update();
 		///=以下更新=//

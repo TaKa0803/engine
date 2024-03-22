@@ -28,11 +28,6 @@ public:
 	void Finalize();
 
 	/// <summary>
-	/// 更新前処理
-	/// </summary>
-	void PreUpdate();
-
-	/// <summary>
 	/// すべてのモデルの描画
 	/// </summary>
 	void DrawAllModel(const Matrix4x4& viewProjection);

@@ -280,6 +280,7 @@ void ALGameScene::Collision() {
 				}
 				enemy->OshiDashi(player_->GetCollider());
 
+				//敵同士の当たり判定
 				int e2Num = 0;
 				for (auto& enemy2 : enemies_) {
 					if (!enemy2->GetDead()&&e1Num!=e2Num) {

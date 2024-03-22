@@ -87,21 +87,13 @@ void InstancingModelManager::Finalize()
 	}
 }
 
-void InstancingModelManager::PreUpdate() {
-
-	//すべてのモデルのワールドデータ初期化
-	for (auto& model : modelDatas_) {
-		model.second->PreUpdate();
-	}
-
-
-
-}
-
 void InstancingModelManager::DrawAllModel(const Matrix4x4& viewProjection) {
 
 	for (auto& model : modelDatas_) {
-		model.second->Draw(viewProjection);
+		if (model.second->GetWorldNum() != 0) {
+			model.second->Draw(viewProjection);
+		}
+		
 	}
 
 }
