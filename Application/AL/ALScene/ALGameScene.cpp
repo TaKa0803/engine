@@ -140,7 +140,7 @@ void ALGameScene::Initialize() {
 
 void ALGameScene::Update() {
 
-
+	
 
 	switch (scene_) {
 	case ALGameScene::Game:
@@ -169,8 +169,7 @@ void ALGameScene::Update() {
 
 		CameraShake();
 
-		camera_->Update();
-
+		
 		//
 		enemyPopManager_->Update();
 
@@ -205,6 +204,8 @@ void ALGameScene::Update() {
 	default:
 		break;
 	}
+	camera_->Update();
+
 
 	SceneChange();
 }

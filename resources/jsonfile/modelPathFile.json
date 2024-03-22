@@ -18,7 +18,6 @@
     "sphere": [ "resources/SystemResources", "sphere", 1000 ],
     "z+Plane": [ "resources/SystemResources", "normalZ+Plane", 1000 ],
     "box": [ "resources/SystemResources", "ALPlayer", 1000 ],
-    "ALPlayer": [ "resources/AppResource", "ALPlayer", 1 ],
     "plane": [ "resources/AppResource", "plane", 1 ],
     "player": [ "resources/AppResource", "player", 100 ],
     "Head": [ "resources/AppResource/Object", "Head", 1000 ],

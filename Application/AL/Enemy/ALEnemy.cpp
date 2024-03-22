@@ -224,9 +224,11 @@ void ALEnemy::Update() {
 
 	collider_->Update();
 
-	//shadow->SetTranslate({ world_.translate_.x,0.1f,world_.translate_.z });
-	//shadow->Update();
+	shadow->SetTranslate({ world_.translate_.x,0.1f,world_.translate_.z });
+	shadow->Update();
 }
+
+
 
 bool ALEnemy::Collision(SphereCollider* collider) {
 
@@ -275,6 +277,7 @@ Vector3 ALEnemy::OshiDashi(SphereCollider* collider)
 
 void ALEnemy::Draw() {
 
+	world_.UpdateMatrix();
 	int IndexX = 0;
 	for (auto& world : mWorlds) {
 		world.UpdateMatrix();
@@ -282,6 +285,6 @@ void ALEnemy::Draw() {
 		IndexX++;
 	}
 
-	//shadow->Draw();
+	shadow->Draw();
 	//collider_->Draw();
 }

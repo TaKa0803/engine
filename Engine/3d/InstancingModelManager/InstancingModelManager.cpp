@@ -93,7 +93,6 @@ void InstancingModelManager::DrawAllModel(const Matrix4x4& viewProjection) {
 		if (model.second->GetWorldNum() != 0) {
 			model.second->Draw(viewProjection);
 		}
-		
 	}
 
 }

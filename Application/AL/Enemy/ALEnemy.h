@@ -19,6 +19,9 @@ public:
 	/// </summary>
 	void Update();
 
+	//行列のみ更新
+	void UpdateMatrix();
+
 	bool Collision(SphereCollider* collider);
 
 	//osimodosi

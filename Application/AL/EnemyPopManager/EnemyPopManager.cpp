@@ -116,6 +116,7 @@ void EnemyPopManager::Draw() {
 	InstancingModelManager* IMM = InstancingModelManager::GetInstance();
 	int Index = 0;
 	for (auto& world : flagWorlds_) {
+		world.UpdateMatrix();
 		if (popDatas_[Index].maxAreaPopCount < popDatas_[Index].maxAreaPop) {
 			IMM->SetData(flag_, world);
 		}

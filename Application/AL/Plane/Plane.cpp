@@ -44,5 +44,6 @@ void Plane::DebagWindow() {
 }
 
 void Plane::Draw(const Camera& viewp) {
+	world_.UpdateMatrix();
 	GameObject::Draw(viewp);
 }
